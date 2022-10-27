@@ -16,7 +16,6 @@ public class Wallet : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         GoldCoin[] _coins = GameObject.FindObjectsOfType<GoldCoin>();
         _totalCoinInLevel = _coins.Length;
-        Debug.Log($"Tatal coins in Level: {_totalCoinInLevel}");
     }
     private void OnEnable()
     {
