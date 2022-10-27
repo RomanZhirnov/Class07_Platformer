@@ -10,7 +10,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private float _speed = 2f;
 
     private Rigidbody2D _rg2D;
-    private RaycastHit2D[] result = new RaycastHit2D [1];
+    private RaycastHit2D[] _result = new RaycastHit2D [1];
     private float _distanceToCheck = 0.1f;
     private float _horizontal;
 
@@ -37,7 +37,7 @@ public class Controller : MonoBehaviour
 
     private bool IsGrounded()
     {
-        int collisionCount = _rg2D.Cast(Vector2.down, result, _distanceToCheck);
+        int collisionCount = _rg2D.Cast(Vector2.down, _result, _distanceToCheck);
 
         if (collisionCount != 0)
         {
