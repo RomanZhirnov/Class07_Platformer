@@ -6,12 +6,11 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    [SerializeField] private LayerMask _groundLayer;
-    [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _jumpForce = 15f;
     [SerializeField] private float _speed = 2f;
 
     private Rigidbody2D _rg2D;
+    private RaycastHit2D[] result = new RaycastHit2D [1];
     private float _distanceToCheck = 0.1f;
     private float _horizontal;
 
@@ -38,7 +37,9 @@ public class Controller : MonoBehaviour
 
     private bool IsGrounded()
     {
-        if (Physics2D.Raycast(_groundCheck.position, Vector2.down, _distanceToCheck, _groundLayer))
+        int collisionCount = _rg2D.Cast(Vector2.down, result, _distanceToCheck);
+
+        if (collisionCount != 0)
         {
             return true;
         }
