@@ -7,10 +7,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform _path;
     [SerializeField] private float _speed = 1;
 
+    private Animator _animator;
     private Coroutine _moving;
 
     void Start()
     {
+        _animator = GetComponent<Animator>();
         _path = GetComponentInChildren<Path>().transform;
 
         Vector3[] _points = new Vector3[_path.childCount];
@@ -30,6 +32,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.transform.TryGetComponent<Player>(out Player player))
         {
+            _animator.StopPlayback();
+            
             if (_moving != null)
             {
                 StopCoroutine(_moving);
