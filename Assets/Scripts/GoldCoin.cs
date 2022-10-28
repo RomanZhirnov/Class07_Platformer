@@ -5,5 +5,16 @@ using UnityEngine;
 
 public class GoldCoin : MonoBehaviour
 {
-    
+    private void Start()
+    {
+        Wallet.CoinCount++;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent<Wallet>(out Wallet wallet))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

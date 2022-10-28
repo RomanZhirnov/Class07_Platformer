@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using System;
 
-public class Enemy01 : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     [SerializeField] private Transform _path;
     [SerializeField] private float _speed = 1;
@@ -11,6 +11,8 @@ public class Enemy01 : MonoBehaviour
 
     void Start()
     {
+        _path = GetComponentInChildren<Path>().transform;
+
         Vector3[] _points = new Vector3[_path.childCount];
 
         for (int i = 0; i < _points.Length; i++)
