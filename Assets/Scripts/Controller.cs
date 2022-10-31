@@ -20,7 +20,7 @@ public class Controller : MonoBehaviour
     static readonly int Idle = Animator.StringToHash("Player Idle");
     static readonly int Jumping = Animator.StringToHash("Player Jump");
 
-    void Start()
+    private void Start()
     {
         _rg2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();

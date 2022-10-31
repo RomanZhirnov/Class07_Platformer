@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     private Animator _animator;
     private Coroutine _moving;
 
-    void Start()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
         _path = GetComponentInChildren<Path>().transform;

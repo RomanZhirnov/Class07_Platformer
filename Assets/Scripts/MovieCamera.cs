@@ -14,7 +14,7 @@ public class MovieCamera : MonoBehaviour
         _targetPosition = transform.position;
     }
 
-    void Update()
+    private void Update()
     {
         _targetPosition.x = _playerPosition.position.x;
 
