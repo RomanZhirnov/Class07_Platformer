@@ -11,11 +11,8 @@ public class Wallet : MonoBehaviour
     private AudioSource _audioSource;
     private int _coinsInWallet;
 
-    public static int CoinCount;
-
-    private void Awake()
+    private void Start()
     {
-        CoinCount = 0;
         _audioSource = GetComponent<AudioSource>();
     }
 
@@ -31,6 +28,5 @@ public class Wallet : MonoBehaviour
     {
         _audioSource.PlayOneShot(_takeCoin);
         _coinsInWallet++;
-        Debug.Log($"Собрано {_coinsInWallet} из {CoinCount}");
     }
 }
