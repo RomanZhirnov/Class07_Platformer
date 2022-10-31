@@ -44,7 +44,7 @@ public class Controller : MonoBehaviour
         {
             _rg2D.velocity = new Vector2(_xAxis * _speed, _rg2D.velocity.y);
             _spriteR.flipX = _xAxis < 0;
-            _animator.CrossFade(Run, 0.1f);
+            _animator.CrossFade(Run, 0.01f);
         }
         else
         {
@@ -52,11 +52,11 @@ public class Controller : MonoBehaviour
 
             if (IsGrounded() == false)
             {
-                _animator.CrossFade(Jumping, 0.1f);
+                _animator.CrossFade(Jumping, 0.01f);
             }
             else
             {
-                _animator.CrossFade(Idle, 0.1f);
+                _animator.CrossFade(Idle, 0.01f);
             }
         }
 
@@ -72,11 +72,6 @@ public class Controller : MonoBehaviour
     {
         int collisionCount = _rg2D.Cast(Vector2.down, _result, _distanceToCheck);
 
-        if (collisionCount != 0)
-        {
-            return true;
-        }
-
-        return false;
+        return collisionCount > 0;
     }
 }
