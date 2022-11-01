@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using System;
 
+[RequireComponent(typeof(Animator))]
+
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private Transform _path;
